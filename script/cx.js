@@ -65,7 +65,7 @@ function classifyNodes(proxies) {
 }
 
 function createProxyGroups(nodes) {
-    const {All} = nodes;
+    const {All} = nodes ;
     const {HK, TW, JP, SG, US} = nodes.YL;
     const {xs_US, xs_EU, xs_JP} = xsNodeNames;
     const {gz_KR, gz_JP, gz_DE} = gzNodeNames
