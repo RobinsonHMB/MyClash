@@ -25,7 +25,7 @@ const main = function (config) {
     );
 
     const nodes = classifyNodes(config.proxies);
-    config.proxies.push(...externalNames)
+    config.proxies.push(...externalNodes)
     config["proxy-groups"] = createProxyGroups(nodes);
     config.rules = [...getRules(), "MATCH,Default"];
 
@@ -77,7 +77,7 @@ function createProxyGroups(nodes) {
     const highMultiplierGroup = {name: "高倍率", type: "select", proxies: HighMultiplier};
 
     const serviceGroups = [
-        {name: "YouTube", type: "fallback", proxies: [...TW, ...SG, ...JP, ...HK, ...US]},
+        {name: "YouTube", type: "fallback", proxies: [...externalNames, ...TW, ...SG, ...JP, ...HK, ...US]},
         {name: "Google", type: "fallback", proxies: [...SG, ...TW, ...JP, ...US, ...DE, ...HK]},
         {name: "Gemini", type: "fallback", proxies: [...SG, ...TW, ...JP, ...US, ...DE]},
         {name: "ChatGPT", type: "fallback", proxies: [...TW, ...SG, ...JP, ...US, ...DE]},
