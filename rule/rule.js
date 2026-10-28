@@ -27,6 +27,7 @@ const rules = [
     "DOMAIN-SUFFIX,bbc.com,BBC",
     "DOMAIN-SUFFIX,bbc.co.uk,BBC",
     "DOMAIN-SUFFIX,bbci.co.uk,BBC",
+    "DOMAIN-SUFFIX,bbc.gscontxt.net,BBC",
     "DOMAIN-SUFFIX,x.com,X",
     "DOMAIN-SUFFIX,twitter.com,X",
     "DOMAIN-SUFFIX,twimg.com,X",
