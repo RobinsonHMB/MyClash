@@ -54,6 +54,11 @@ function createProxyGroups(nodes) {
     const {All} = nodes;
     const {HighMultiplier} = nodes;
     const {HK, TW, JP, SG, US, DE, Other} = nodes.ByCountry;
+    const externalNodes = addExternalNodes();
+    const externalNames = [];
+    for (const {name} of externalNodes) {
+        externalNames.push(name)
+    }
 
     const defaultGroup = {
         name: "Default",
@@ -70,7 +75,7 @@ function createProxyGroups(nodes) {
     const highMultiplierGroup = {name: "高倍率", type: "select", proxies: HighMultiplier};
 
     const serviceGroups = [
-        {name: "YouTube", type: "url-test", proxies: [...TW, ...SG, ...JP, ...HK, ...US]},
+        {name: "YouTube", type: "fallback", proxies: [...externalNames, ...TW, ...SG, ...JP, ...HK, ...US]},
         {name: "Google", type: "fallback", proxies: [...SG, ...TW, ...JP, ...US, ...DE, ...HK]},
         {name: "Gemini", type: "fallback", proxies: [...SG, ...TW, ...JP, ...US, ...DE]},
         {name: "ChatGPT", type: "fallback", proxies: [...TW, ...SG, ...JP, ...US, ...DE]},
@@ -221,4 +226,11 @@ function getRules() {
         "GEOSITE,CN,DIRECT",
         "GEOIP,CN,DIRECT,no-resolve",
     ];
+}
+
+function addExternalNodes() {
+    return [
+        {"name": "🇭🇰香港•移联01", "type": "vless", "server": "chuixuevl9.blowingsnowclouds.cc", "port": 443, "uuid": "7bed3f19-1896-4bde-bd9b-1b788a9c98b6", "udp": true, "tls": true, "skip-cert-verify": false, "flow": "xtls-rprx-vision", "client-fingerprint": "safari", "servername": "cdn-dynmedia-1.microsoft.com", "reality-opts": {"public-key": "Bt8p1w1P5zWruU_Blg11Y0bBiB7mHy6-4GZLZtPeREw", "short-id": "b2248634"}},
+        {"name": "🇭🇰香港•移联02", "type": "vless", "server": "chuixuevl10.blowingsnowclouds.cc", "port": 443, "uuid": "7bed3f19-1896-4bde-bd9b-1b788a9c98b6", "udp": true, "tls": true, "skip-cert-verify": false, "flow": "xtls-rprx-vision", "client-fingerprint": "ios", "servername": "cdn-dynmedia-1.microsoft.com", "reality-opts": {"public-key": "888QlOQEHED3U5VxsxhV_VXnpfADETzFK9UDN6ah_SA", "short-id": "c2024015"}}
+    ]
 }
