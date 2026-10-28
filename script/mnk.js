@@ -50,18 +50,10 @@ function createProxyGroups(nodes) {
     const defaultGroup = {
         name: "Default",
         type: "select",
-        proxies: [
-            "Auto",
-            ...countries.flatMap((country) => nodes.ByCountry[country]),
-            "DIRECT",
-        ],
+        proxies: ["Auto", ...countries.flatMap((country) => nodes.ByCountry[country]), "DIRECT"],
     };
 
-    const autoGroup = {
-        name: "Auto",
-        type: "fallback",
-        proxies: [...TW, ...SG, ...JP, ...HK, ...US, ...DE, ...Other],
-    };
+    const autoGroup = {name: "Auto", type: "fallback", proxies: [...TW, ...SG, ...JP, ...HK, ...US, ...DE, ...Other]};
 
     const serviceGroups = [
         {name: "YouTube", type: "url-test", proxies: [...TW, ...SG, ...JP, ...HK, ...US]},
