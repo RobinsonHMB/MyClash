@@ -209,6 +209,7 @@ function getRules() {
         "DOMAIN-SUFFIX,126.net,DIRECT",
         "DOMAIN-SUFFIX,127.net,DIRECT",
         "DOMAIN-SUFFIX,163.com,DIRECT",
+        "DOMAIN-SUFFIX,deepseek.com,DIRECT",
 
         // 局域网 / 特殊地址
         "IP-CIDR,127.0.0.0/8,DIRECT",
