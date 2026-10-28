@@ -226,6 +226,7 @@ function getRules() {
         "DOMAIN-KEYWORD,github,Github",
         "DOMAIN-SUFFIX,bbc.com,BBC",
         "DOMAIN-SUFFIX,bbc.co.uk,BBC",
+        "DOMAIN-SUFFIX,bbci.co.uk,BBC",
         "DOMAIN-SUFFIX,x.com,X",
         "DOMAIN-SUFFIX,twitter.com,X",
         "DOMAIN-SUFFIX,twimg.com,X",
