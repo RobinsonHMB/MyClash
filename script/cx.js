@@ -9,7 +9,7 @@ const countryRegex = {
     US: /🇺🇸|美国/i,
     UK: /🇬🇧|英国/i,
     DE: /🇩🇪|德国/i,
-  
+
 };
 const xsNodeNames = {
     xs_JP: ["🇯🇵日本·三网|软银1", "🇯🇵日本·三网|软银2", "🇯🇵日本·三网|软银3", "🇯🇵日本·三网|软银4"],
@@ -65,7 +65,7 @@ function classifyNodes(proxies) {
 }
 
 function createProxyGroups(nodes) {
-    const {All} = nodes ;
+    const {All} = nodes;
     const {HK, TW, JP, SG, US} = nodes.YL;
     const {xs_US, xs_EU, xs_JP} = xsNodeNames;
     const {gz_KR, gz_JP, gz_DE} = gzNodeNames
@@ -95,17 +95,17 @@ function createProxyGroups(nodes) {
         {
             name: "Google",
             type: "fallback",
-            proxies: [ ...SG, ...TW, ...JP, ...US, ...xs_EU, ...xs_JP,],
+            proxies: [...SG, ...TW, ...JP, ...US, ...xs_EU, ...xs_JP,],
         },
         {
             name: "Gemini",
             type: "fallback",
-            proxies: [ ...SG, ...TW, ...JP, ...US, ...xs_EU, ...xs_JP,],
+            proxies: [...SG, ...TW, ...JP, ...US, ...xs_EU, ...xs_JP,],
         },
         {
             name: "ChatGPT",
             type: "fallback",
-            proxies: [ ...TW, ...SG, ...JP, ...US, ...xs_US],
+            proxies: [...TW, ...SG, ...JP, ...US, ...xs_US],
         },
         {
             name: "X",
@@ -120,17 +120,17 @@ function createProxyGroups(nodes) {
         {
             name: "Telegram",
             type: "url-test",
-            proxies: [ ...gz_JP, ...gz_KR, ...gz_DE, ...SG, ...JP, ...TW, ...US, ...HK],
+            proxies: [...gz_JP, ...gz_KR, ...gz_DE, ...SG, ...JP, ...TW, ...US, ...HK],
         },
         {
             name: "BBC",
             type: "fallback",
-            proxies: [...xs_EU, ...xs_JP,  ...gz_JP, ...gz_KR, ...gz_DE,],
+            proxies: [...xs_EU, ...xs_JP, ...gz_JP, ...gz_KR, ...gz_DE,],
         },
         {
             name: "Github",
             type: "fallback",
-            proxies: [ ...gz_JP, ...gz_KR, ...gz_DE, ...HK, ...SG, ...JP, ...TW],
+            proxies: [...gz_JP, ...gz_KR, ...gz_DE, ...HK, ...SG, ...JP, ...TW],
         },
     ].map((group) => ({
         ...group,
@@ -158,7 +158,7 @@ function createProxyGroups(nodes) {
         ...defaultGroup,
         proxies: [...defaultGroup.proxies.filter((name) =>
             name === "DIRECT" || validGroupNames.has(name) || validNodeNames.has(name)
-        ), ],
+        )],
     };
 
     return [validDefaultGroup, ...validGroups];
@@ -312,7 +312,7 @@ function getRules() {
         "DOMAIN-SUFFIX,126.net,DIRECT",
         "DOMAIN-SUFFIX,127.net,DIRECT",
         "DOMAIN-SUFFIX,163.com,DIRECT",
-        
+
         // 局域网 / 特殊地址
         'IP-CIDR,127.0.0.0/8,DIRECT',
         "IP-CIDR,192.168.0.0/16,DIRECT,no-resolve",
