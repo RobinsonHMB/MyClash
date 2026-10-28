@@ -29,10 +29,17 @@ const main = function (config) {
 function classifyNodes(proxies) {
     const nodes = {
         All: proxies.map(({name}) => name),
+        HighMultiplier: [],
         ByCountry: Object.fromEntries(countries.map((country) => [country, []])),
     };
 
     for (const {name} of proxies) {
+        const multiplier = name.match(/(?:^|[-\s])([0-9]+(?:\.[0-9]+)?)x(?:\s|\||-|$)/i);
+        if (multiplier && Number(multiplier[1]) > 1) {
+            nodes.HighMultiplier.push(name);
+            continue;
+        }
+
         const country = countries.find(
             (item) => item !== "Other" && countryRegex[item].test(name)
         ) || "Other";
@@ -45,15 +52,22 @@ function classifyNodes(proxies) {
 
 function createProxyGroups(nodes) {
     const {All} = nodes;
+    const {HighMultiplier} = nodes;
     const {HK, TW, JP, SG, US, DE, Other} = nodes.ByCountry;
 
     const defaultGroup = {
         name: "Default",
         type: "select",
-        proxies: ["Auto", ...countries.flatMap((country) => nodes.ByCountry[country]), "DIRECT"],
+        proxies: [
+            "Auto",
+            ...countries.flatMap((country) => nodes.ByCountry[country]),
+            ...(HighMultiplier.length > 0 ? ["高倍率"] : []),
+            "DIRECT",
+        ],
     };
 
     const autoGroup = {name: "Auto", type: "fallback", proxies: [...TW, ...SG, ...JP, ...HK, ...US, ...DE, ...Other]};
+    const highMultiplierGroup = {name: "高倍率", type: "select", proxies: HighMultiplier};
 
     const serviceGroups = [
         {name: "YouTube", type: "url-test", proxies: [...TW, ...SG, ...JP, ...HK, ...US]},
@@ -81,10 +95,10 @@ function createProxyGroups(nodes) {
         return result;
     };
 
-    const allGroups = [autoGroup, ...serviceGroups];
+    const allGroups = [autoGroup, highMultiplierGroup, ...serviceGroups];
     const validGroups = allGroups
         .filter((group) => group.proxies.length > 0)
-        .map(withTest);
+        .map((group) => group.type === "select" ? group : withTest(group));
 
     const validGroupNames = new Set(validGroups.map(({name}) => name));
     const validNodeNames = new Set(All);
