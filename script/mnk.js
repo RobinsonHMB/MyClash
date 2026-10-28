@@ -77,15 +77,15 @@ function createProxyGroups(nodes) {
     const highMultiplierGroup = {name: "高倍率", type: "select", proxies: HighMultiplier};
 
     const serviceGroups = [
-        {name: "YouTube", type: "fallback", proxies: [...externalNames, ...TW, ...SG, ...JP, ...HK, ...US]},
-        {name: "Google", type: "fallback", proxies: [...SG, ...TW, ...JP, ...US, ...DE, ...HK]},
-        {name: "Gemini", type: "fallback", proxies: [...SG, ...TW, ...JP, ...US, ...DE]},
-        {name: "ChatGPT", type: "fallback", proxies: [...TW, ...SG, ...JP, ...US, ...DE]},
-        {name: "X", type: "fallback", proxies: [...US, ...JP, ...SG, ...TW, ...HK, ...DE]},
-        {name: "TikTok", type: "fallback", proxies: [...US, ...TW, ...JP, ...SG, ...HK]},
-        {name: "Telegram", type: "url-test", proxies: [...SG, ...JP, ...TW, ...US, ...HK, ...DE]},
-        {name: "BBC", type: "fallback", proxies: [...DE, ...JP, ...SG, ...US, ...HK]},
-        {name: "Github", type: "fallback", proxies: [...HK, ...SG, ...JP, ...TW, ...US, ...DE]},
+        {name: "YouTube", type: "fallback", proxies: [...externalNames, ...TW, ...SG, ...JP, ...HK, ...US, "高倍率"]},
+        {name: "Google", type: "fallback", proxies: [...SG, ...TW, ...JP, ...US, ...DE, ...HK, "高倍率"]},
+        {name: "Gemini", type: "fallback", proxies: [...SG, ...TW, ...JP, ...US, ...DE, "高倍率"]},
+        {name: "ChatGPT", type: "fallback", proxies: [...TW, ...SG, ...JP, ...US, ...DE, "高倍率"]},
+        {name: "X", type: "fallback", proxies: [...US, ...JP, ...SG, ...TW, ...HK, ...DE, "高倍率"]},
+        {name: "TikTok", type: "fallback", proxies: [...US, ...TW, ...JP, ...SG, ...HK, "高倍率"]},
+        {name: "Telegram", type: "url-test", proxies: [...SG, ...JP, ...TW, ...US, ...HK, ...DE, "高倍率"]},
+        {name: "BBC", type: "fallback", proxies: [...DE, ...JP, ...SG, ...US, ...HK, "高倍率"]},
+        {name: "Github", type: "fallback", proxies: [...HK, ...SG, ...JP, ...TW, ...US, ...DE, "高倍率"]},
     ];
 
     const withTest = (group) => {
