@@ -123,7 +123,7 @@ function createProxyGroups(nodes) {
         },
         {
             name: "BBC",
-            type: "url-test",
+            type: "fallback",
             proxies: [...xs_EU, ...xs_JP,  ...gz_JP, ...gz_KR, ...gz_DE,],
         },
         {
