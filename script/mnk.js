@@ -9,6 +9,12 @@ const countryRegex = {
     DE: /🇩🇪|德国/i,
 };
 
+const externalNodes = addExternalNodes();
+const externalNames = [];
+for (const {name} of externalNodes) {
+    externalNames.push(name)
+}
+
 const countries = [...Object.keys(countryRegex), "Other"];
 const testURL = "https://www.gstatic.com/generate_204";
 
@@ -19,7 +25,7 @@ const main = function (config) {
     );
 
     const nodes = classifyNodes(config.proxies);
-
+    config.proxies.push(...externalNames)
     config["proxy-groups"] = createProxyGroups(nodes);
     config.rules = [...getRules(), "MATCH,Default"];
 
@@ -54,11 +60,7 @@ function createProxyGroups(nodes) {
     const {All} = nodes;
     const {HighMultiplier} = nodes;
     const {HK, TW, JP, SG, US, DE, Other} = nodes.ByCountry;
-    const externalNodes = addExternalNodes();
-    const externalNames = [];
-    for (const {name} of externalNodes) {
-        externalNames.push(name)
-    }
+
 
     const defaultGroup = {
         name: "Default",
