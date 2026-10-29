@@ -80,7 +80,7 @@ function createProxyGroups(nodes) {
         {name: "YouTube", type: "url-test", proxies: [...HK, ...TW, ...SG, ...JP, ...US]},
         {name: "Google", type: "url-test", proxies: [...TW, ...SG, ...JP, ...US, ...DE, "高倍率"]},
         {name: "Gemini", type: "fallback", proxies: [...TW, ...SG, ...JP, ...US, ...DE, "高倍率"]},
-        {name: "ChatGPT", type: "fallback", proxies: [...SG, ...TW, ...JP, ...US, ...DE, "高倍率"]},
+        {name: "ChatGPT", type: "fallback", proxies: [...US, ...JP, ...TW, ...DE, "高倍率"]},
         {name: "X", type: "fallback", proxies: [...US, ...JP, ...SG, ...TW, ...HK, ...DE, "高倍率"]},
         {name: "TikTok", type: "fallback", proxies: [...US, ...TW, ...JP, ...SG, ...HK, "高倍率"]},
         {name: "Telegram", type: "url-test", proxies: [...SG, ...JP, ...TW, ...US, ...HK, ...DE, "高倍率"]},
