@@ -132,6 +132,7 @@ function createProxyGroups(nodes) {
 function getRules() {
     return [
         // YouTube / 沉浸式翻译
+        "DOMAIN-SUFFIX,music.youtube.com,TikTok",
         "DOMAIN-SUFFIX,googlevideo.com,YouTube",
         "DOMAIN-SUFFIX,ggpht.com,YouTube",
         "DOMAIN-SUFFIX,ytimg.com,YouTube",
