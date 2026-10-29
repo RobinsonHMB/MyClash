@@ -119,7 +119,7 @@ function createProxyGroups(nodes) {
         ...defaultGroup,
         proxies: defaultGroup.proxies.filter((name) =>
             name === "DIRECT" || validGroupNames.has(name) || validNodeNames.has(name)
-        ),
+        )
     };
 
     return [validDefaultGroup, ...validGroups];
@@ -238,8 +238,5 @@ function getRules() {
 }
 
 function addExternalNodes() {
-    return [
-        {"name": "🇭🇰香港•移联01", "type": "vless", "server": "chuixuevl9.blowingsnowclouds.cc", "port": 443, "uuid": "7bed3f19-1896-4bde-bd9b-1b788a9c98b6", "udp": true, "tls": true, "skip-cert-verify": false, "flow": "xtls-rprx-vision", "client-fingerprint": "safari", "servername": "cdn-dynmedia-1.microsoft.com", "reality-opts": {"public-key": "Bt8p1w1P5zWruU_Blg11Y0bBiB7mHy6-4GZLZtPeREw", "short-id": "b2248634"}},
-        {"name": "🇭🇰香港•移联02", "type": "vless", "server": "chuixuevl10.blowingsnowclouds.cc", "port": 443, "uuid": "7bed3f19-1896-4bde-bd9b-1b788a9c98b6", "udp": true, "tls": true, "skip-cert-verify": false, "flow": "xtls-rprx-vision", "client-fingerprint": "ios", "servername": "cdn-dynmedia-1.microsoft.com", "reality-opts": {"public-key": "888QlOQEHED3U5VxsxhV_VXnpfADETzFK9UDN6ah_SA", "short-id": "c2024015"}}
-    ]
+    return []
 }
