@@ -90,7 +90,7 @@ function createProxyGroups(nodes) {
         {name: "Telegram", type: "url-test", proxies: [...SG, ...JP, ...TW, ...US, ...HK, ...DE, "高倍率"]},
         {name: "BBC", type: "fallback", proxies: [...UK, ...DE, ...NL, ...JP, ...SG, ...US, ...HK, "高倍率"]},
         {name: "Github", type: "fallback", proxies: [...HK, ...SG, ...JP, ...TW, ...US, ...DE, "高倍率"]},
-        {name: "YT Music", type: "fallback", proxies: [...JP, ...SG, ...DE, ...UK]},
+        {name: "YT Music", type: "fallback", proxies: [...JP, "YouTube"]},
     ];
 
     const withTest = (group) => {
