@@ -77,7 +77,7 @@ function createProxyGroups(nodes) {
     const highMultiplierGroup = {name: "高倍率", type: "select", proxies: HighMultiplier};
 
     const serviceGroups = [
-        {name: "YouTube", type: "url-test", proxies: [...TW, ...SG, ...JP, ...HK, ...US]},
+        {name: "YouTube", type: "url-test", proxies: [...HK, ...TW, ...SG, ...JP, ...US]},
         {name: "Google", type: "url-test", proxies: [...HK, ...SG, ...TW, ...JP, ...US, ...DE, "高倍率"]},
         {name: "Gemini", type: "fallback", proxies: [...HK, ...SG, ...TW, ...JP, ...US, ...DE, "高倍率"]},
         {name: "ChatGPT", type: "fallback", proxies: [...SG, ...TW, ...JP, ...US, ...DE, "高倍率"]},
