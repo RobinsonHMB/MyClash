@@ -16,7 +16,7 @@ const countryRegex = {
 const externalNodes = addExternalNodes();
 const externalNames = [];
 for (const {name} of externalNodes) {
-    externalNames.push(name)
+    externalNames.push(name);
 }
 
 const countries = [...Object.keys(countryRegex), "Other"];
@@ -29,7 +29,7 @@ const main = function (config) {
     );
 
     const nodes = classifyNodes(config.proxies);
-    config.proxies.push(...externalNodes)
+    config.proxies.push(...externalNodes);
     config["proxy-groups"] = createProxyGroups(nodes);
     config.rules = [...getRules(), "MATCH,Default"];
 
@@ -109,7 +109,7 @@ function createProxyGroups(nodes) {
                 return result;
             case "url-test":
                 result.tolerance = 20;
-                return result
+                return result;
         }
     };
 
@@ -244,5 +244,5 @@ function getRules() {
 }
 
 function addExternalNodes() {
-    return []
+    return [];
 }
