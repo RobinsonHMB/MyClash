@@ -8,6 +8,9 @@ const countryRegex = {
     US: /🇺🇸|美国/i,
     DE: /🇩🇪|德国/i,
     UK: /🇬🇧|英国/i,
+    NL: /🇳🇱|荷兰/i,
+    RU: /🇷🇺|俄罗斯/i,
+    VN: /🇻🇳|越南/i
 };
 
 const externalNodes = addExternalNodes();
@@ -60,7 +63,7 @@ function classifyNodes(proxies) {
 function createProxyGroups(nodes) {
     const {All} = nodes;
     const {HighMultiplier} = nodes;
-    const {HK, TW, JP, SG, US, DE, UK, Other} = nodes.ByCountry;
+    const {HK, TW, JP, SG, US, DE, UK, NL, RU, VN, Other} = nodes.ByCountry;
 
 
     const defaultGroup = {
@@ -85,7 +88,7 @@ function createProxyGroups(nodes) {
         {name: "X", type: "fallback", proxies: [...US, ...JP, ...SG, ...TW, ...HK, ...DE, "高倍率"]},
         {name: "TikTok", type: "fallback", proxies: [...US, ...TW, ...JP, ...SG, ...HK, "高倍率"]},
         {name: "Telegram", type: "url-test", proxies: [...SG, ...JP, ...TW, ...US, ...HK, ...DE, "高倍率"]},
-        {name: "BBC", type: "fallback", proxies: [...UK, ...DE, ...JP, ...SG, ...US, ...HK, "高倍率"]},
+        {name: "BBC", type: "fallback", proxies: [...UK, ...DE, ...NL, ...JP, ...SG, ...US, ...HK, "高倍率"]},
         {name: "Github", type: "fallback", proxies: [...HK, ...SG, ...JP, ...TW, ...US, ...DE, "高倍率"]},
     ];
 
