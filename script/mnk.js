@@ -22,7 +22,7 @@ const testURL = "https://www.gstatic.com/generate_204";
 const main = function (config) {
     // 删除流量、重置时间、套餐到期等说明节点。
     config.proxies = (config.proxies || []).filter(
-        ({name}) => !/试验|更新|套餐|剩余|流量|重置|到期/i.test(name)
+        ({name}) => !/试验|更新|套餐|剩余|流量|重置|到期|IPV6/i.test(name)
     );
 
     const nodes = classifyNodes(config.proxies);
