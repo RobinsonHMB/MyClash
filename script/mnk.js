@@ -90,6 +90,7 @@ function createProxyGroups(nodes) {
         {name: "Telegram", type: "url-test", proxies: [...SG, ...JP, ...TW, ...US, ...HK, ...DE, "高倍率"]},
         {name: "BBC", type: "fallback", proxies: [...UK, ...DE, ...NL, ...JP, ...SG, ...US, ...HK, "高倍率"]},
         {name: "Github", type: "fallback", proxies: [...HK, ...SG, ...JP, ...TW, ...US, ...DE, "高倍率"]},
+        {name: "YT Music", type: "fallback", proxies: [...JP, ...SG, ...DE, ...UK]},
     ];
 
     const withTest = (group) => {
@@ -132,7 +133,7 @@ function createProxyGroups(nodes) {
 function getRules() {
     return [
         // YouTube / 沉浸式翻译
-        "DOMAIN-SUFFIX,music.youtube.com,TikTok",
+        "DOMAIN-SUFFIX,music.youtube.com,YT Music",
         "DOMAIN-SUFFIX,googlevideo.com,YouTube",
         "DOMAIN-SUFFIX,ggpht.com,YouTube",
         "DOMAIN-SUFFIX,ytimg.com,YouTube",
