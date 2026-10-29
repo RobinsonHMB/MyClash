@@ -73,7 +73,7 @@ function createProxyGroups(nodes) {
         ],
     };
 
-    const autoGroup = {name: "Auto", type: "fallback", proxies: [...TW, ...SG, ...JP, ...HK, ...US, ...DE, ...Other]};
+    const autoGroup = {name: "Auto", type: "fallback", proxies: [...HK, ...TW, ...SG, ...JP, ...US, ...DE, ...Other]};
     const highMultiplierGroup = {name: "高倍率", type: "select", proxies: HighMultiplier};
 
     const serviceGroups = [
@@ -97,15 +97,21 @@ function createProxyGroups(nodes) {
             lazy: true,
             "max-failed-times": 2,
         };
-
-        if (group.type === "url-test") result.tolerance = 20;
-        return result;
+        switch (group.type) {
+            case "select":
+                return group;
+            case "fallback":
+                return result;
+            case "url-test":
+                result.tolerance = 20;
+                return result
+        }
     };
 
     const allGroups = [autoGroup, highMultiplierGroup, ...serviceGroups];
     const validGroups = allGroups
         .filter((group) => group.proxies.length > 0)
-        .map((group) => group.type === "select" ? group : withTest(group));
+        .map((group) => withTest(group));
 
     const validGroupNames = new Set(validGroups.map(({name}) => name));
     const validNodeNames = new Set(All);
