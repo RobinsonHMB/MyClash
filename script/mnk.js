@@ -90,6 +90,7 @@ function createProxyGroups(nodes) {
         {name: "Telegram", type: "url-test", proxies: [...SG, ...JP, ...TW, ...US, ...HK, ...DE, "高倍率"]},
         {name: "BBC", type: "fallback", proxies: [...UK, ...DE, ...NL, ...JP, ...SG, ...US, ...HK, "高倍率"]},
         {name: "Github", type: "fallback", proxies: [...HK, ...SG, ...JP, ...TW, ...US, ...DE, "高倍率"]},
+        {name: "Twitch", type: "fallback", proxies: [...HK, ...SG, ...JP, ...TW, ...US, ...DE]},
     ];
 
     const withTest = (group) => {
@@ -166,6 +167,10 @@ function getRules() {
         "DOMAIN-SUFFIX,twitter.com,X",
         "DOMAIN-SUFFIX,twimg.com,X",
         "DOMAIN-SUFFIX,t.co,X",
+        "DOMAIN-SUFFIX,twitch.tv,Twitch",
+        "DOMAIN-SUFFIX,ttvnw.net,Twitch",
+        "DOMAIN-SUFFIX,jtvnw.net,Twitch",
+        "DOMAIN-SUFFIX,live-video.net,Twitch",
 
         // Telegram
         "DOMAIN-SUFFIX,telegram.org,Telegram",
