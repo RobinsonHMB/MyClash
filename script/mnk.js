@@ -63,7 +63,7 @@ function classifyNodes(proxies) {
 function createProxyGroups(nodes) {
     const {All} = nodes;
     const {HighMultiplier} = nodes;
-    const {HK, TW, JP, SG, US, DE, UK, NL, RU, VN, Other} = nodes.ByCountry;
+    const {HK, TW, JP, SG, US, DE, UK, NL, Other} = nodes.ByCountry;
 
 
     const defaultGroup = {
