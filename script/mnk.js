@@ -93,7 +93,7 @@ function createProxyGroups(nodes) {
         },
         {name: "Google", type: "url-test", proxies: [...TW, ...SG, ...JP, ...US]},
         {name: "Gemini", type: "fallback", proxies: [...TW, ...SG, ...JP, ...US]},
-        {name: "ChatGPT", type: "fallback", proxies: [...TW, ...JP, ...US, ...SG]},
+        {name: "ChatGPT", type: "fallback", proxies: [...TW, ...SG, ...JP, ...US]},
         {
             name: "X", type: "fallback",
             proxies: [...US, ...JP, ...SG, ...TW, ...HK, ...DE].filter(n => /1.0|1.2|1.5|2.0/i.test(n))
@@ -102,7 +102,7 @@ function createProxyGroups(nodes) {
             name: "TikTok", type: "fallback",
             proxies: [...US, ...TW, ...JP, ...SG, ...HK].filter(n => /1.0|1.2|1.5|2.0/i.test(n))
         },
-        {name: "Telegram", type: "url-test", proxies: [...SG, ...JP, ...TW, ...US, ...HK, ...DE]},
+        {name: "Telegram", type: "url-test", proxies: [...HK, ...TW, ...SG, ...JP]},
         {name: "BBC", type: "fallback", proxies: [...HK, ...SG, ...UK, ...DE, ...NL, ...JP, ...US,]},
         {name: "Github", type: "fallback", proxies: [...HK, ...SG, ...JP, ...TW, ...US, ...DE]},
         {
