@@ -98,7 +98,7 @@ function createProxyGroups(nodes) {
         {name: "BBC", type: "fallback", proxies: [...UK, ...DE, ...NL, ...JP, ...SG, ...US, ...HK]},
         {name: "Github", type: "fallback", proxies: [...HK, ...SG, ...JP, ...TW, ...US, ...DE]},
         {name: "Twitch", type: "fallback", proxies: [...HK, ...SG, ...JP, ...TW, ...US, ...DE]
-                .filter(n => /1.0|1.2|1.5|2.0/i.test(n))},
+                .filter(n => /1.0|1.2/i.test(n))},
     ];
 
     const withTest = (group) => {
