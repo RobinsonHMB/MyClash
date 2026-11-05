@@ -84,14 +84,14 @@ function createProxyGroups(nodes) {
 
     const serviceGroups = [
         {name: "YouTube", type: "url-test", proxies: [...HK, ...TW, ...SG, ...JP, ...US].filter(n => /1.0|1.2/i.test(n))},
-        {name: "Google", type: "url-test", proxies: [...TW, ...SG, ...JP, ...US, ...DE, "高倍率"]},
-        {name: "Gemini", type: "fallback", proxies: [...TW, ...SG, ...JP, ...US, ...DE, "高倍率"]},
-        {name: "ChatGPT", type: "fallback", proxies: [...JP, ...US, ...TW, ...DE, "高倍率"]},
+        {name: "Google", type: "url-test", proxies: [...TW, ...SG, ...JP, ...US, ...DE]},
+        {name: "Gemini", type: "fallback", proxies: [...TW, ...SG, ...JP, ...US, ...DE]},
+        {name: "ChatGPT", type: "fallback", proxies: [...JP, ...US, ...TW, ...DE]},
         {name: "X", type: "fallback", proxies: [...US, ...JP, ...SG, ...TW, ...HK, ...DE].filter(n => /1.0|1.2|1.5|2.0/i.test(n))},
         {name: "TikTok", type: "fallback", proxies: [...US, ...TW, ...JP, ...SG, ...HK].filter(n => /1.0|1.2|1.5|2.0/i.test(n))},
-        {name: "Telegram", type: "url-test", proxies: [...SG, ...JP, ...TW, ...US, ...HK, ...DE, "高倍率"]},
-        {name: "BBC", type: "fallback", proxies: [...UK, ...DE, ...NL, ...JP, ...SG, ...US, ...HK, "高倍率"]},
-        {name: "Github", type: "fallback", proxies: [...HK, ...SG, ...JP, ...TW, ...US, ...DE, "高倍率"]},
+        {name: "Telegram", type: "url-test", proxies: [...SG, ...JP, ...TW, ...US, ...HK, ...DE]},
+        {name: "BBC", type: "fallback", proxies: [...UK, ...DE, ...NL, ...JP, ...SG, ...US, ...HK]},
+        {name: "Github", type: "fallback", proxies: [...HK, ...SG, ...JP, ...TW, ...US, ...DE]},
         {name: "Twitch", type: "fallback", proxies: [...HK, ...SG, ...JP, ...TW, ...US, ...DE].filter(n => /1.0|1.2|1.5|2.0/i.test(n))},
     ];
 
