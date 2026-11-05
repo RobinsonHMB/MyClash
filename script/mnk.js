@@ -48,7 +48,7 @@ function classifyNodes(proxies) {
 
     for (const {name} of proxies) {
         const multiplier = name.match(/(?:^|[-\s])([0-9]+(?:\.[0-9]+)?)x(?:\s|\||-|$)/i);
-        if (multiplier && Number(multiplier[1]) > 5) {
+        if (multiplier && Number(multiplier[1]) > 3) {
             nodes.HighMultiplier.push(name);
             continue;
         }
