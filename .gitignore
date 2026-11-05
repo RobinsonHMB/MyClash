@@ -6,7 +6,3 @@ yaml2json/*
 !yaml2json/package-lock.json
 !yaml2json/README.md
 /tool/yaml2json/node_modules/
-/tool/yaml2json/1.js
-/tool/yaml2json/1.yaml
-/tool/yaml2json/3.js
-/tool/yaml2json/0.js
