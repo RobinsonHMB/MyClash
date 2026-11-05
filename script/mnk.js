@@ -79,20 +79,26 @@ function createProxyGroups(nodes) {
         ],
     };
 
-    const autoGroup = {name: "Auto", type: "fallback", proxies: [...HK, ...TW, ...SG, ...JP, ...US, ...DE, ...Other]};
+    const autoGroup = {name: "Auto", type: "fallback",
+        proxies: [...HK, ...TW, ...SG, ...JP, ...US, ...DE, ...Other]
+            .filter(n => /1.0|1.2|1.5|2.0/i.test(n))};
     const highMultiplierGroup = {name: "高倍率", type: "select", proxies: HighMultiplier};
 
     const serviceGroups = [
-        {name: "YouTube", type: "url-test", proxies: [...HK, ...TW, ...SG, ...JP, ...US].filter(n => /1.0|1.2/i.test(n))},
+        {name: "YouTube", type: "url-test",
+            proxies: [...HK, ...TW, ...SG, ...JP, ...US].filter(n => /1.0|1.2/i.test(n))},
         {name: "Google", type: "url-test", proxies: [...TW, ...SG, ...JP, ...US, ...DE]},
         {name: "Gemini", type: "fallback", proxies: [...TW, ...SG, ...JP, ...US, ...DE]},
         {name: "ChatGPT", type: "fallback", proxies: [...JP, ...US, ...TW, ...DE]},
-        {name: "X", type: "fallback", proxies: [...US, ...JP, ...SG, ...TW, ...HK, ...DE].filter(n => /1.0|1.2|1.5|2.0/i.test(n))},
-        {name: "TikTok", type: "fallback", proxies: [...US, ...TW, ...JP, ...SG, ...HK].filter(n => /1.0|1.2|1.5|2.0/i.test(n))},
+        {name: "X", type: "fallback",
+            proxies: [...US, ...JP, ...SG, ...TW, ...HK, ...DE].filter(n => /1.0|1.2|1.5|2.0/i.test(n))},
+        {name: "TikTok", type: "fallback",
+            proxies: [...US, ...TW, ...JP, ...SG, ...HK].filter(n => /1.0|1.2|1.5|2.0/i.test(n))},
         {name: "Telegram", type: "url-test", proxies: [...SG, ...JP, ...TW, ...US, ...HK, ...DE]},
         {name: "BBC", type: "fallback", proxies: [...UK, ...DE, ...NL, ...JP, ...SG, ...US, ...HK]},
         {name: "Github", type: "fallback", proxies: [...HK, ...SG, ...JP, ...TW, ...US, ...DE]},
-        {name: "Twitch", type: "fallback", proxies: [...HK, ...SG, ...JP, ...TW, ...US, ...DE].filter(n => /1.0|1.2|1.5|2.0/i.test(n))},
+        {name: "Twitch", type: "fallback", proxies: [...HK, ...SG, ...JP, ...TW, ...US, ...DE]
+                .filter(n => /1.0|1.2|1.5|2.0/i.test(n))},
     ];
 
     const withTest = (group) => {
