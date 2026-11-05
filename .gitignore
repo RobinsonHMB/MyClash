@@ -5,3 +5,4 @@ yaml2json/*
 !yaml2json/package.json
 !yaml2json/package-lock.json
 !yaml2json/README.md
+/tool/yaml2json/node_modules/
