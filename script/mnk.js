@@ -27,7 +27,7 @@ const testURL = "https://www.gstatic.com/generate_204";
 const main = function (config) {
     // 删除流量、重置时间、套餐到期等说明节点。
     config.proxies = (config.proxies || []).filter(
-        ({name}) => !/试验|更新|套餐|剩余|流量|重置|到期|IPV6/i.test(name)
+        ({name}) => !/官网|试验|更新|套餐|剩余|流量|重置|到期|IPV6/i.test(name)
     );
 
     const nodes = classifyNodes(config.proxies);
@@ -84,7 +84,7 @@ function createProxyGroups(nodes) {
     const highMultiplierGroup = {name: "高倍率", type: "select", proxies: HighMultiplier};
 
     const serviceGroups = [
-        {name: "YouTube", type: "url-test", proxies: [...HK, ...TW, ...SG, ...JP, ...US]},
+        {name: "YouTube", type: "url-test", proxies: [...HK, ...TW, ...SG, ...JP, ...US].filter(n => /1.0|1.2/i.test(n))},
         {name: "Google", type: "url-test", proxies: [...TW, ...SG, ...JP, ...US, ...DE, "高倍率"]},
         {name: "Gemini", type: "fallback", proxies: [...TW, ...SG, ...JP, ...US, ...DE, "高倍率"]},
         {name: "ChatGPT", type: "fallback", proxies: [...JP, ...US, ...TW, ...DE, "高倍率"]},
