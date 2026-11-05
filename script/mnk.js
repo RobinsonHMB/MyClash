@@ -91,8 +91,8 @@ function createProxyGroups(nodes) {
             name: "YouTube", type: "url-test",
             proxies: [...HK, ...TW, ...SG, ...JP, ...US].filter(n => /1.0|1.2/i.test(n))
         },
-        {name: "Google", type: "url-test", proxies: [...TW, ...SG, ...JP, ...US]},
-        {name: "Gemini", type: "fallback", proxies: [...TW, ...SG, ...JP, ...US]},
+        {name: "Google", type: "url-test", proxies: [...TW, ...SG, ...JP, ...US, ...HK]},
+        {name: "Gemini", type: "fallback", proxies: [...TW, ...SG, ...JP, ...US, ...HK]},
         {name: "ChatGPT", type: "fallback", proxies: [...TW, ...SG, ...JP, ...US]},
         {
             name: "X", type: "fallback",
