@@ -115,7 +115,7 @@ function createProxyGroups(nodes) {
         }
     };
 
-    const allGroups = [autoGroup, highMultiplierGroup, ...serviceGroups];
+    const allGroups = [...serviceGroups, autoGroup, highMultiplierGroup,];
     const validGroups = allGroups
         .filter((group) => group.proxies.length > 0)
         .map((group) => withTest(group));
