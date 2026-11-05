@@ -1,5 +1,7 @@
 // noinspection SpellCheckingInspection
 // MNK
+// import config from './3.js'
+
 const countryRegex = {
     HK: /🇭🇰|香港/i,
     TW: /🇹🇼|台湾/i,
@@ -29,6 +31,7 @@ const main = function (config) {
     );
 
     const nodes = classifyNodes(config.proxies);
+    console.log(nodes)
     config.proxies.push(...externalNodes);
     config["proxy-groups"] = createProxyGroups(nodes);
     config.rules = [...getRules(), "MATCH,Default"];
@@ -45,7 +48,7 @@ function classifyNodes(proxies) {
 
     for (const {name} of proxies) {
         const multiplier = name.match(/(?:^|[-\s])([0-9]+(?:\.[0-9]+)?)x(?:\s|\||-|$)/i);
-        if (multiplier && Number(multiplier[1]) > 1) {
+        if (multiplier && Number(multiplier[1]) > 5) {
             nodes.HighMultiplier.push(name);
             continue;
         }
@@ -252,3 +255,5 @@ function getRules() {
 function addExternalNodes() {
     return [];
 }
+
+// main(config);
